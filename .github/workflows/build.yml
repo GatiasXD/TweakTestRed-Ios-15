@@ -1,0 +1,24 @@
+name: Build SwitchColor15
+
+'on':
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Instalar Theos
+        uses: Randomblock1/theos-action@v1
+
+      - name: Compilar tweak
+        run: make package FINALPACKAGE=1
+
+      - name: Subir DEB
+        uses: actions/upload-artifact@v4
+        with:
+          name: SwitchColor15-deb
+          path: packages/*.deb
