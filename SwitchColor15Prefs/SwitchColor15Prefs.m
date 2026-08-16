@@ -8,7 +8,7 @@
 
 - (NSArray *)specifiers
 {
-    if (!_specifiers) {
+    if (_specifiers == nil) {
         _specifiers = [self loadSpecifiersFromPlistName:@"Root"
                                                   target:self];
     }
@@ -18,22 +18,7 @@
 
 - (void)respring
 {
-    pid_t pid;
-    const char *args[] = {
-        "killall",
-        "-9",
-        "SpringBoard",
-        NULL
-    };
-
-    posix_spawn(
-        &pid,
-        "/usr/bin/killall",
-        NULL,
-        NULL,
-        (char *const *)args,
-        NULL
-    );
+    system("killall -9 SpringBoard");
 }
 
 @end
