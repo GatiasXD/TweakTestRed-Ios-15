@@ -1,178 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 
 <plist version="1.0">
 <dict>
 
-	<key>title</key>
-	<string>SwitchColor15</string>
+    <key>title</key>
+    <string>SwitchColor15</string>
 
-	<key>entry</key>
-	<dict>
-		<key>cell</key>
-		<string>PSLinkCell</string>
+    <key>entry</key>
+    <dict>
+        <key>cell</key>
+        <string>PSLinkCell</string>
 
-		<key>label</key>
-		<string>SwitchColor15</string>
-	</dict>
+        <key>label</key>
+        <string>SwitchColor15</string>
 
-	<key>items</key>
-	<array>
+        <key>bundle</key>
+        <string>SwitchColor15</string>
+    </dict>
 
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
+    <key>items</key>
+    <array>
 
-			<key>label</key>
-			<string>Color de los switches</string>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>SwitchColor15</string>
+        </dict>
 
-			<key>footerText</key>
-			<string>Elige el color que tendrán los switches activados.</string>
-		</dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkListCell</string>
+            <key>label</key>
+            <string>Color</string>
 
+            <key>defaults</key>
+            <string>com.matias.switchcolor15</string>
 
-		<dict>
-			<key>cell</key>
-			<string>PSLinkListCell</string>
+            <key>key</key>
+            <string>preset</string>
 
-			<key>label</key>
-			<string>Color</string>
+            <key>default</key>
+            <string>blue</string>
 
-			<key>defaults</key>
-			<string>com.matias.switchcolor15</string>
+            <key>validValues</key>
+            <array>
+                <string>red</string>
+                <string>green</string>
+                <string>blue</string>
+                <string>purple</string>
+            </array>
 
-			<key>key</key>
-			<string>preset</string>
+            <key>validTitles</key>
+            <array>
+                <string>Rojo</string>
+                <string>Verde</string>
+                <string>Azul</string>
+                <string>Morado</string>
+            </array>
 
-			<key>default</key>
-			<string>blue</string>
+            <key>PostNotification</key>
+            <string>com.matias.switchcolor15/settingschanged</string>
+        </dict>
 
-			<key>validValues</key>
-			<array>
-				<string>red</string>
-				<string>green</string>
-				<string>blue</string>
-				<string>purple</string>
-				<string>custom</string>
-			</array>
-
-			<key>validTitles</key>
-			<array>
-				<string>Rojo</string>
-				<string>Verde</string>
-				<string>Azul</string>
-				<string>Morado</string>
-				<string>Personalizado</string>
-			</array>
-
-			<key>PostNotification</key>
-			<string>com.matias.switchcolor15/settingschanged</string>
-		</dict>
-
-
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-
-			<key>label</key>
-			<string>Color personalizado</string>
-
-			<key>footerText</key>
-			<string>Estos valores se utilizan cuando seleccionas Personalizado.</string>
-		</dict>
-
-
-		<dict>
-			<key>cell</key>
-			<string>PSSliderCell</string>
-
-			<key>label</key>
-			<string>Rojo</string>
-
-			<key>defaults</key>
-			<string>com.matias.switchcolor15</string>
-
-			<key>key</key>
-			<string>red</string>
-
-			<key>default</key>
-			<real>255</real>
-
-			<key>min</key>
-			<real>0</real>
-
-			<key>max</key>
-			<real>255</real>
-
-			<key>showValue</key>
-			<true/>
-
-			<key>PostNotification</key>
-			<string>com.matias.switchcolor15/settingschanged</string>
-		</dict>
-
-
-		<dict>
-			<key>cell</key>
-			<string>PSSliderCell</string>
-
-			<key>label</key>
-			<string>Verde</string>
-
-			<key>defaults</key>
-			<string>com.matias.switchcolor15</string>
-
-			<key>key</key>
-			<string>green</string>
-
-			<key>default</key>
-			<real>59</real>
-
-			<key>min</key>
-			<real>0</real>
-
-			<key>max</key>
-			<real>255</real>
-
-			<key>showValue</key>
-			<true/>
-
-			<key>PostNotification</key>
-			<string>com.matias.switchcolor15/settingschanged</string>
-		</dict>
-
-
-		<dict>
-			<key>cell</key>
-			<string>PSSliderCell</string>
-
-			<key>label</key>
-			<string>Azul</string>
-
-			<key>defaults</key>
-			<string>com.matias.switchcolor15</string>
-
-			<key>key</key>
-			<string>blue</string>
-
-			<key>default</key>
-			<real>48</real>
-
-			<key>min</key>
-			<real>0</real>
-
-			<key>max</key>
-			<real>255</real>
-
-			<key>showValue</key>
-			<true/>
-
-			<key>PostNotification</key>
-			<string>com.matias.switchcolor15/settingschanged</string>
-		</dict>
-
-	</array>
+    </array>
 
 </dict>
 </plist>
