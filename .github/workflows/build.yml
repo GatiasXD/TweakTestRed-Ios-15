@@ -14,8 +14,22 @@ jobs:
       - name: Instalar Theos
         uses: Randomblock1/theos-action@v1
 
+      - name: Comprobar archivos
+        run: |
+          echo "Directorio actual:"
+          pwd
+          echo "Contenido:"
+          ls -la
+          echo "Buscando Tweak.xm:"
+          find . -maxdepth 3 -name "Tweak.xm" -print
+          echo "Makefile:"
+          cat Makefile
+
       - name: Compilar tweak
-        run: make package FINALPACKAGE=1
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          make clean
+          make package FINALPACKAGE=1
 
       - name: Subir DEB
         uses: actions/upload-artifact@v4
