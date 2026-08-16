@@ -26,7 +26,6 @@ jobs:
           cat Makefile
 
       - name: Compilar tweak
-        working-directory: ${{ github.workspace }}
         run: |
           make clean
           make package FINALPACKAGE=1
