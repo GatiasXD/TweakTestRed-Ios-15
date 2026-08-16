@@ -1,9 +1,0 @@
-Package: com.matias.switchcolor15
-Name: SwitchColor15
-Version: 0.1.0
-Architecture: iphoneos-arm64
-Description: Cambia el color de los switches activados en Ajustes de iOS 15.
-Maintainer: Matias
-Author: Matias
-Section: Tweaks
-Depends: firmware (>= 15.0)
