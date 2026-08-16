@@ -1,5 +1,7 @@
 TARGET := iphone:clang:latest:15.0
-ARCHS := arm64 arm64e
+INSTALL_TARGET_PROCESSES = Preferences
+
+ARCHS = arm64
 THEOS_PACKAGE_SCHEME = rootless
 
 include $(THEOS)/makefiles/common.mk
@@ -10,8 +12,14 @@ SwitchColor15_FILES = Tweak.xm
 SwitchColor15_CFLAGS = -fobjc-arc
 SwitchColor15_FRAMEWORKS = UIKit
 
-include $(THEOS_MAKE_PATH)/tweak.mk
+BUNDLE_NAME = SwitchColor15Prefs
 
-internal-stage::
-	$(ECHO_NOTHING)mkdir -p $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences$(ECHO_END)
-	$(ECHO_NOTHING)cp SwitchColor15Prefs.plist $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences/SwitchColor15.plist$(ECHO_END)
+SwitchColor15Prefs_FILES = SwitchColor15Prefs/SwitchColor15Prefs.m
+SwitchColor15Prefs_INSTALL_PATH = /Library/PreferenceBundles
+SwitchColor15Prefs_RESOURCES = SwitchColor15Prefs/Root.plist
+SwitchColor15Prefs_FRAMEWORKS = UIKit
+SwitchColor15Prefs_PRIVATE_FRAMEWORKS = Preferences
+SwitchColor15Prefs_CFLAGS = -fobjc-arc
+
+include $(THEOS_MAKE_PATH)/tweak.mk
+include $(THEOS_MAKE_PATH)/bundle.mk
