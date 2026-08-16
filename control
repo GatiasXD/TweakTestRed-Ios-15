@@ -1,9 +1,0 @@
-Package: com.matias.switchcolor15
-Name: SwitchColor15
-Version: 0.4.0
-Architecture: iphoneos-arm64
-Description: Cambia el color de los switches de Ajustes con presets y RGB personalizado para Dopamine Rootless.
-Maintainer: Matias
-Author: Matias
-Section: Tweaks
-Depends: preferenceloader, firmware (>= 15.0)
