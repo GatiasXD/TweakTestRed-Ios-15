@@ -13,8 +13,8 @@ static UIColor *SC15ColorFromDefaults(void) {
 
     NSString *preset =
         [(__bridge id)presetValue isKindOfClass:[NSString class]]
-        ? [(__bridge NSString *)presetValue copy]
-        : @"blue";
+            ? [(__bridge NSString *)presetValue copy]
+            : @"blue";
 
     if (presetValue)
         CFRelease(presetValue);
@@ -58,18 +58,18 @@ static UIColor *SC15ColorFromDefaults(void) {
 
     double r =
         [(__bridge id)rValue respondsToSelector:@selector(doubleValue)]
-        ? [(__bridge id)rValue doubleValue] / 255.0
-        : 1.0;
+            ? [(__bridge id)rValue doubleValue] / 255.0
+            : 1.0;
 
     double g =
         [(__bridge id)gValue respondsToSelector:@selector(doubleValue)]
-        ? [(__bridge id)gValue doubleValue] / 255.0
-        : 0.0;
+            ? [(__bridge id)gValue doubleValue] / 255.0
+            : 0.0;
 
     double b =
         [(__bridge id)bValue respondsToSelector:@selector(doubleValue)]
-        ? [(__bridge id)bValue doubleValue] / 255.0
-        : 0.0;
+            ? [(__bridge id)bValue doubleValue] / 255.0
+            : 0.0;
 
     if (rValue)
         CFRelease(rValue);
@@ -187,5 +187,7 @@ static void SC15PreferencesChanged(
             NULL,
             CFNotificationSuspensionBehaviorDeliverImmediately
         );
+
+        SC15RefreshVisibleSwitches();
     }
 }
