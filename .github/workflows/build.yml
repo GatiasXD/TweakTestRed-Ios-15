@@ -1,36 +1,37 @@
-name: Build SwitchColor15
+name: Build SwitchColor15 v0.5.0
 
-on:
-  push:
-    branches:
-      - main
-
+'on':
   workflow_dispatch:
 
 jobs:
   build:
-
-    runs-on: macos-latest
-
+    runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Install Theos
         uses: Randomblock1/theos-action@v1
-
-      - name: Build tweak
+      - name: Check project
+        run: |
+          pwd
+          ls -la
+          test -f Tweak.xm
+          test -f Makefile
+          test -f control
+          test -f SwitchColor15Prefs/SwitchColor15Prefs.m
+          test -f SwitchColor15Prefs/Root.plist
+          test -f SwitchColor15Prefs/Info.plist
+          test -f layout/var/jb/Library/PreferenceLoader/Preferences/SwitchColor15.plist
+      - name: Build
         run: |
           make clean
-          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-
-      - name: List packages
+          make package FINALPACKAGE=1
+      - name: Inspect package
         run: |
           ls -lah packages/
-
+          dpkg-deb -c packages/*.deb
       - name: Upload DEB
         uses: actions/upload-artifact@v4
         with:
-          name: SwitchColor15-v0.5.1
+          name: SwitchColor15-v0.5.0-deb
           path: packages/*.deb
