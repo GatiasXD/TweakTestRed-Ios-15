@@ -1,52 +1,36 @@
-name: Build SwitchColor15 v0.4.0
+name: Build SwitchColor15
 
-'on':
+on:
+  push:
+    branches:
+      - main
+
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+
+    runs-on: macos-latest
 
     steps:
-      - name: Descargar proyecto
+
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Instalar Theos
+      - name: Install Theos
         uses: Randomblock1/theos-action@v1
 
-      - name: Comprobar archivos
-        run: |
-          echo "=== ROOT ==="
-          pwd
-          ls -la
-
-          echo "=== Tweak.xm ==="
-          test -f Tweak.xm && echo "OK: Tweak.xm existe" || exit 1
-
-          echo "=== Makefile ==="
-          test -f Makefile && echo "OK: Makefile existe" || exit 1
-
-          echo "=== control ==="
-          test -f control && echo "OK: control existe" || exit 1
-
-          echo "=== layout ==="
-          find layout -type f -print || true
-
-      - name: Compilar paquete Rootless
+      - name: Build tweak
         run: |
           make clean
-          make package FINALPACKAGE=1
+          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
 
-      - name: Inspeccionar DEB
+      - name: List packages
         run: |
-          echo "=== PAQUETES ==="
           ls -lah packages/
 
-          echo "=== CONTENIDO DEL DEB ==="
-          dpkg-deb -c packages/*.deb
-
-      - name: Subir DEB
+      - name: Upload DEB
         uses: actions/upload-artifact@v4
         with:
-          name: SwitchColor15-v0.4.0-deb
+          name: SwitchColor15-v0.5.1
           path: packages/*.deb
