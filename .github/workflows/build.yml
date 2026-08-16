@@ -16,14 +16,17 @@ jobs:
 
       - name: Comprobar archivos
         run: |
-          echo "Directorio:"
+          echo "=== DIRECTORIO ==="
           pwd
-          echo "Archivos:"
+          echo "=== ARCHIVOS ==="
           ls -la
-          echo "Tweak.xm:"
+          echo "=== TWEAK.XM ==="
           find . -name "Tweak.xm" -print
+          echo "=== MAKEFILE ==="
+          cat Makefile
 
       - name: Compilar tweak
+        working-directory: ${{ github.workspace }}
         run: |
           make clean
           make package FINALPACKAGE=1
