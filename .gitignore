@@ -1,0 +1,5 @@
+.deb
+packages/
+.stage/
+.build/
+obj/
