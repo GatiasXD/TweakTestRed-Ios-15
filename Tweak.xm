@@ -19,13 +19,12 @@ static UIColor *SC15ActiveColor(void) {
         id value = (__bridge id)presetRef;
 
         if ([value isKindOfClass:[NSString class]]) {
-            preset = [(NSString *)value copy];
+            preset = [value copy];
         }
 
         CFRelease(presetRef);
     }
 
-    // Colores predefinidos
     if ([preset isEqualToString:@"red"]) {
         return [UIColor colorWithRed:1.0
                                green:0.231
@@ -54,7 +53,6 @@ static UIColor *SC15ActiveColor(void) {
                                alpha:1.0];
     }
 
-    // Personalizado
     CFPropertyListRef rRef =
         CFPreferencesCopyAppValue(CFSTR("red"), kSC15PrefsID);
 
@@ -108,32 +106,24 @@ static UIColor *SC15ActiveColor(void) {
                            alpha:1.0];
 }
 
-static UIColor *SC15ThumbColor(void) {
-    return [UIColor whiteColor];
-}
-
 static UIColor *SC15OffColor(void) {
     return [UIColor colorWithWhite:0.72 alpha:1.0];
 }
-
-#pragma mark - Switch
 
 static void SC15ApplyToSwitch(UISwitch *switchControl) {
     if (!switchControl) {
         return;
     }
 
-    UIColor *activeColor = SC15ActiveColor();
-
-    switchControl.onTintColor = activeColor;
-    switchControl.thumbTintColor = SC15ThumbColor();
+    switchControl.onTintColor = SC15ActiveColor();
+    switchControl.thumbTintColor = [UIColor whiteColor];
 
     if (!switchControl.isOn) {
         switchControl.tintColor = SC15OffColor();
     }
 }
 
-#pragma mark - Recursive refresh
+#pragma mark - Refresh
 
 static void SC15RefreshView(UIView *view) {
     if (!view) {
@@ -168,10 +158,6 @@ static void SC15RefreshWindows(void) {
                     SC15RefreshView(window);
                 }
             }
-        } else {
-            for (UIWindow *window in application.windows) {
-                SC15RefreshView(window);
-            }
         }
     });
 }
@@ -188,25 +174,22 @@ static void SC15PreferencesChanged(
     SC15RefreshWindows();
 }
 
-#pragma mark - UISwitch hooks
+#pragma mark - UISwitch
 
 %hook UISwitch
 
 - (void)layoutSubviews {
     %orig;
-
     SC15ApplyToSwitch(self);
 }
 
 - (void)didMoveToWindow {
     %orig;
-
     SC15ApplyToSwitch(self);
 }
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated {
     %orig;
-
     SC15ApplyToSwitch(self);
 }
 
