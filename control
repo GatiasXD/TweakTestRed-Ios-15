@@ -6,4 +6,4 @@ Description: Personaliza los colores de los switches de Ajustes en iOS 15 con Do
 Maintainer: Matias
 Author: Matias
 Section: Tweaks
-Depends: mobilesubstrate, preferenceloader, firmware (>= 15.0)
+Depends: mobilesubstrate, preferenceloader
