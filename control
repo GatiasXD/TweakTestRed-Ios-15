@@ -1,9 +1,0 @@
-Package: com.matias.switchcolor15
-Name: SwitchColor15
-Version: 0.5.1
-Architecture: iphoneos-arm64
-Description: Custom colors for iOS 15 UISwitches with Preferences UI and Respring button.
-Maintainer: Matias
-Author: Matias
-Section: Tweaks
-Depends: mobilesubstrate, preferenceloader
