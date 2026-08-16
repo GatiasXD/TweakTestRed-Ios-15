@@ -11,20 +11,19 @@
             <key>Type</key>
             <string>PSGroupSpecifier</string>
             <key>Title</key>
-            <string>Color del switch</string>
-            <key>FooterText</key>
-            <string>Elige el color de los switches de Ajustes.</string>
+            <string>SwitchColor15</string>
         </dict>
 
         <dict>
             <key>Type</key>
             <string>PSRadioGroupSpecifier</string>
             <key>Title</key>
-            <string>Color</string>
+            <string>Color de los switches</string>
             <key>Key</key>
             <string>preset</string>
             <key>DefaultValue</key>
             <string>blue</string>
+
             <key>Values</key>
             <array>
                 <string>red</string>
@@ -33,6 +32,7 @@
                 <string>purple</string>
                 <string>custom</string>
             </array>
+
             <key>Titles</key>
             <array>
                 <string>Rojo</string>
@@ -41,13 +41,16 @@
                 <string>Morado</string>
                 <string>Personalizado</string>
             </array>
+
+            <key>PostNotification</key>
+            <string>com.matias.switchcolor15/settingschanged</string>
         </dict>
 
         <dict>
             <key>Type</key>
             <string>PSGroupSpecifier</string>
             <key>Title</key>
-            <string>Personalizado</string>
+            <string>Color personalizado</string>
         </dict>
 
         <dict>
@@ -63,6 +66,8 @@
             <real>0</real>
             <key>MaximumValue</key>
             <real>255</real>
+            <key>ShowValue</key>
+            <true/>
         </dict>
 
         <dict>
@@ -78,6 +83,8 @@
             <real>0</real>
             <key>MaximumValue</key>
             <real>255</real>
+            <key>ShowValue</key>
+            <true/>
         </dict>
 
         <dict>
@@ -93,6 +100,8 @@
             <real>0</real>
             <key>MaximumValue</key>
             <real>255</real>
+            <key>ShowValue</key>
+            <true/>
         </dict>
 
         <dict>
