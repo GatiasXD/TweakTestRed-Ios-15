@@ -4,7 +4,6 @@
 
 <plist version="1.0">
 <dict>
-
     <key>PreferenceSpecifiers</key>
     <array>
 
@@ -42,8 +41,6 @@
                 <string>Morado</string>
                 <string>Personalizado</string>
             </array>
-            <key>PostNotification</key>
-            <string>com.matias.switchcolor15/settingschanged</string>
         </dict>
 
         <dict>
@@ -51,8 +48,6 @@
             <string>PSGroupSpecifier</string>
             <key>Title</key>
             <string>Personalizado</string>
-            <key>FooterText</key>
-            <string>Estos valores se usan cuando eliges Personalizado.</string>
         </dict>
 
         <dict>
@@ -68,10 +63,6 @@
             <real>0</real>
             <key>MaximumValue</key>
             <real>255</real>
-            <key>ShowValue</key>
-            <true/>
-            <key>PostNotification</key>
-            <string>com.matias.switchcolor15/settingschanged</string>
         </dict>
 
         <dict>
@@ -87,10 +78,6 @@
             <real>0</real>
             <key>MaximumValue</key>
             <real>255</real>
-            <key>ShowValue</key>
-            <true/>
-            <key>PostNotification</key>
-            <string>com.matias.switchcolor15/settingschanged</string>
         </dict>
 
         <dict>
@@ -106,10 +93,6 @@
             <real>0</real>
             <key>MaximumValue</key>
             <real>255</real>
-            <key>ShowValue</key>
-            <true/>
-            <key>PostNotification</key>
-            <string>com.matias.switchcolor15/settingschanged</string>
         </dict>
 
         <dict>
@@ -122,6 +105,5 @@
         </dict>
 
     </array>
-
 </dict>
 </plist>
