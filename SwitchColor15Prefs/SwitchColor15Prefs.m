@@ -1,28 +1,39 @@
-#import <UIKit/UIKit.h>
-#import <Preferences/Preferences.h>
-#include <spawn.h>
-#include <sys/wait.h>
+#import <Preferences/PSListController.h>
+#import <Preferences/PSSpecifier.h>
 
-@interface SwitchColor15PrefsListController : PSListController
+@interface SwitchColor15Prefs : PSListController
 @end
 
-@implementation SwitchColor15PrefsListController
+@implementation SwitchColor15Prefs
 
-- (NSArray *)specifiers {
-    if (!_specifiers) _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];
+- (NSArray *)specifiers
+{
+    if (!_specifiers) {
+        _specifiers = [self loadSpecifiersFromPlistName:@"Root"
+                                                  target:self];
+    }
+
     return _specifiers;
 }
 
-- (void)postChange {
-    CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),
-        CFSTR("com.matias.switchcolor15/settingschanged"), NULL, NULL, true);
-}
-
-- (void)respring {
+- (void)respring
+{
     pid_t pid;
-    const char *argv[] = {"killall", "-9", "SpringBoard", NULL};
-    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char * const *)argv, NULL);
-    waitpid(pid, NULL, 0);
+    const char *args[] = {
+        "killall",
+        "-9",
+        "SpringBoard",
+        NULL
+    };
+
+    posix_spawn(
+        &pid,
+        "/usr/bin/killall",
+        NULL,
+        NULL,
+        (char *const *)args,
+        NULL
+    );
 }
 
 @end
