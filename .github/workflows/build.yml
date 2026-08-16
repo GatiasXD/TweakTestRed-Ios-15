@@ -16,18 +16,15 @@ jobs:
 
       - name: Comprobar archivos
         run: |
-          echo "Directorio actual:"
+          echo "Directorio:"
           pwd
-          echo "Contenido:"
+          echo "Archivos:"
           ls -la
-          echo "Buscando Tweak.xm:"
-          find . -maxdepth 3 -name "Tweak.xm" -print
-          echo "Makefile:"
-          cat Makefile
+          echo "Tweak.xm:"
+          find . -name "Tweak.xm" -print
 
       - name: Compilar tweak
         run: |
-          cd "$GITHUB_WORKSPACE"
           make clean
           make package FINALPACKAGE=1
 
